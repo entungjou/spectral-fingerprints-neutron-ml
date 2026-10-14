@@ -90,8 +90,7 @@ def compute_flat_log_spectrum_metric(sub_df, energy_col):
 
     logE = np.log10(energy)
 
-    # NumPy 2.x uses np.trapezoid instead of np.trapz
-    dphi = np.trapezoid(xs, logE)
+    dphi = np.trapz(xs, logE)
 
     return dphi
 
@@ -113,7 +112,7 @@ def compute_linear_energy_metric(sub_df, energy_col):
     energy = sub_df[energy_col].to_numpy()
     xs = sub_df[XS_COL].to_numpy()
 
-    dphi_linear = np.trapezoid(xs, energy)
+    dphi_linear = np.trapz(xs, energy)
 
     return dphi_linear
 
